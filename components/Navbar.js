@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { Icon } from "react-native-elements";
 
 const Navbar = () => {
   const myFun = () => {
@@ -8,15 +9,13 @@ const Navbar = () => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.navbutton}>
-        <View style={styles.buttonbg}>
-          <Text>Set</Text>
-        </View>
+        <Icon name="alarm" type="material-community" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.navbutton}>
-        <Text>Calendar</Text>
+        <Icon name="calendar" type="material-community" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.navbutton} onPress={myFun}>
-        <Text>Calendar</Text>
+        <Icon name="microphone" type="material-community" />
       </TouchableOpacity>
     </View>
   );
