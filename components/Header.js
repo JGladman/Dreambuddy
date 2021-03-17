@@ -1,13 +1,13 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 
 const Header = () => {
   return (
-    <View style={styles.wrapper}>
-      <View style={styles.container}>
+    <SafeAreaView style={styles.wrapper}>
+      <SafeAreaView style={styles.container}>
         <Text style={styles.text}>Dreambuddy</Text>
-      </View>
-    </View>
+      </SafeAreaView>
+    </SafeAreaView>
   );
 };
 
