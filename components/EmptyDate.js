@@ -14,7 +14,7 @@ const EmptyPage = () => {
                 </TouchableOpacity>            
             </View>
             <View >
-                <Text style={styles.date}>Thursday, March 4</Text>
+                <Text style={styles.date}>Friday, March 5</Text>
             </View>
            
             <View >
@@ -33,6 +33,11 @@ const styles = StyleSheet.create({
     },
     back: {
         padding: '1em'
+    },
+    date: {
+        fontSize: 25,
+        fontWeight: "bold",
+        padding: 8
     },
     text: {
         color: 'grey',
