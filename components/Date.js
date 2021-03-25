@@ -1,8 +1,7 @@
 /** JavaScript file for specific date page */
 
 import React, { useState } from "react";
-import { StyleSheet, Text, Switch, View, TextInput, Alert, TouchableOpacity } from "react-native";
-
+import { StyleSheet, Text, Switch, View, TextInput, TouchableOpacity } from "react-native";
 
 const Page = () => {
     const [text, onChangeText] = React.useState(null);
@@ -26,124 +25,89 @@ const Page = () => {
             <View >
                 <Text style={styles.date}>Thursday, March 4</Text>
             </View>
+            <View >
+                <Text style={styles.text}>Recording goes here</Text>
+            </View>
             <View style={styles.hr}></View>
             <View >
                 <Text style={styles.text} >Dream Characterization</Text>
             </View>
 
-            {/* disable button when clicked, put in button group??? */}
-            <View style={styles.selection}>
-                <View style={styles.fixToText} >
-                     <View>
+            {/* didn't work */}
+            <View>
+                <View  style ={styles.fixToText}>
+                    <View style={styles.selection}>
                         <Text style={styles.label}>Positive</Text>
                     </View>
-                    <View>
+                    <View style={styles.switch}>
                         <Switch
                             trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
                             thumbColor={isEnabled1 ? "#f5dd4b" : "#f4f3f4"}
                             ios_backgroundColor="#3e3e3e"
                             onValueChange={toggleSwitch1}
                             value={isEnabled1}
-                            style = {styles.switch}
                         /> 
                     </View>
-                    <View >
+                    <View style={styles.selection} >
                         <Text style ={styles.label}>Negative</Text>
                     </View>
                 </View>
-                <View style={styles.fixToText} >
-                     <View>
+
+                <View  style ={styles.fixToText}>
+                    <View style={styles.selection}>
                         <Text style={styles.label}>Realistic</Text>
                     </View>
-                    <View>
+                    <View style={styles.switch} >
                         <Switch
                             trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
                             thumbColor={isEnabled2 ? "#f5dd4b" : "#f4f3f4"}
                             ios_backgroundColor="#3e3e3e"
                             onValueChange={toggleSwitch2}
                             value={isEnabled2}
-                            style = {styles.switch}
                         /> 
                     </View>
-                    <View >
+                    <View style={styles.selection} >
                         <Text style ={styles.label}>Unrealistic</Text>
                     </View>
                 </View>
 
-                <View style={styles.fixToText} >
-                     <View>
+                <View  style ={styles.fixToText}>
+                    <View style={styles.selection}>
                         <Text style={styles.label}>Lucid</Text>
                     </View>
-                    <View>
+                    <View style={styles.switch} >
                         <Switch
                             trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
-                            thumbColor={isEnabled3 ? "#f4f3f4" : "#f4f3f4"}
+                            thumbColor={isEnabled3 ? "#f5dd4b" : "#f4f3f4"}
                             ios_backgroundColor="#3e3e3e"
                             onValueChange={toggleSwitch3}
                             value={isEnabled3}
-                            style = {styles.switch}
                         /> 
                     </View>
-                    <View >
+                    <View style={styles.selection} >
                         <Text style ={styles.label}>Not Lucid</Text>
                     </View>
                 </View>
 
-                <View style={styles.fixToText} >
-                     <View>
+                <View  style ={styles.fixToText}>
+                    <View style={styles.selection}>
                         <Text style={styles.label}>Short</Text>
                     </View>
-                    <View>
+                    <View style={styles.switch} >
                         <Switch
                             trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
                             thumbColor={isEnabled4 ? "#f5dd4b" : "#f4f3f4"}
                             ios_backgroundColor="#3e3e3e"
                             onValueChange={toggleSwitch4}
                             value={isEnabled4}
-                            style = {styles.switch}
                         /> 
                     </View>
-                    <View >
+                    <View style={styles.selection} >
                         <Text style ={styles.label}>Long</Text>
                     </View>
                 </View>
+            </View>
 
-
-
-                {/* <View style={styles.fixToText}>
-                    <View style={styles.list}>
-                        <TouchableOpacity style={styles.button} onPress={() => Alert.alert('Left button pressed')}>Positive</TouchableOpacity>
-                    </View>
-
-                    <View style={styles.list}>
-                        <TouchableOpacity style={styles.button} onPress={() => Alert.alert('Left button pressed')}>Negative</TouchableOpacity>
-                    </View>          
-                </View>
-                <View style={styles.fixToText}>
-                    <View style={styles.list}>
-                        <TouchableOpacity style={styles.button} onPress={() => Alert.alert('Left button pressed')}>Realistic</TouchableOpacity>
-                    </View>
-                    <View style={styles.list}>
-                        <TouchableOpacity style={styles.button} onPress={() => Alert.alert('Left button pressed')}>Unrealistic</TouchableOpacity>
-                    </View>              
-                </View> */}
-                {/* <View style={styles.fixToText}>
-                    <View style={styles.list}>
-                        <TouchableOpacity style={styles.button} onPress={() => Alert.alert('Left button pressed')}>Happy</TouchableOpacity>
-                    </View>
-                    <View style={styles.list}>
-                        <TouchableOpacity style={styles.button} onPress={() => Alert.alert('Left button pressed')}>Sad</TouchableOpacity>
-                    </View>                 
-                </View>
-                <View style={styles.fixToText}>
-                    <View style={styles.list}>
-                        <TouchableOpacity style={styles.button} onPress={() => Alert.alert('Left button pressed')}>Short</TouchableOpacity>
-                    </View>
-                    <View style={styles.list}>
-                        <TouchableOpacity style={styles.button} onPress={() => Alert.alert('Left button pressed')}>Long</TouchableOpacity>
-                    </View>                 
-                </View>*/}
-            </View> 
             <View style={styles.hr}></View>
             <View>
                 <Text style={styles.text} >Notes</Text>
@@ -160,7 +124,7 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
         padding: "1.5em",
-        // fontFamily: "Proxima Nova",
+        fontFamily: "Proxima Nova",
     },
     back: {
         padding: '1em'
@@ -178,14 +142,9 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         padding: 8
     },
-    list: {
-        flex: 1,
-        padding: 8
-    },
     label : {
         color: '#292929',
-        paddingHorizontal: 15,
-        fontSize: 20,
+        fontSize: 15,
     },
     fixToText: {
         flexDirection: 'row',
@@ -195,6 +154,9 @@ const styles = StyleSheet.create({
     },
     selection: {
         flexDirection: 'column',
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
     },
     text: {
         color: '#292929',
@@ -215,6 +177,11 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         marginTop: 25,
         width: "100%"
+    },
+    switch: {
+        alignItems: "center",
+        justifyContent: "center",
+        flex: 0.25
     },
 
 })
