@@ -5,11 +5,20 @@ import RecordingTool from "./RecordingTool";
 import GetTime from"./GetTime";
 import { StyleSheet, Text, View } from "react-native";
 
+/*
+function Page(props) {
+  const user = props.user;
+  const userLink = (
+    <StopRecording uri={user.sound}/>
+  );
+  return <Layout userLink={userLink}/>;
+}
+*/
 const Layout = ({ content }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Header />
+        <Header/>
       </View>
       
       <View style={styles.time}>
@@ -17,7 +26,7 @@ const Layout = ({ content }) => {
       </View>
 
       <View style={styles.recording}>
-        <RecordingTool />
+        <RecordingTool/>
       </View>
       
       <View style={styles.content}>{content}</View>

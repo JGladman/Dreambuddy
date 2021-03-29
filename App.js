@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Layout from "./components/Layout";
 import RecordingPage from "./components/RecordingPage";
+//import {Context} from "./Context";
 
 export function App() {
   const [content, setContent] = useState(
@@ -10,13 +11,13 @@ export function App() {
       <Text>Hello</Text>
     </View>
   );
-  const onPress = () =>
-    setContent(
-      <View>
-        <Text>Hello2</Text>
-      </View>
-    );
-  return <Layout content={content} />;
+
+  return (
+    <Context.Provider value = {theme}>
+      <div>
+      </div>
+    </Context.Provider>);
+    <Layout content={content} /> ;
   };
 
 const styles = StyleSheet.create({
