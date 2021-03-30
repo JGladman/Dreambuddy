@@ -23,9 +23,9 @@ const Navbar = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#C4C4C4",
+    backgroundColor: "#D6D0F1",
     width: "100%",
-    height: "100%",
+    height: "12%",
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
