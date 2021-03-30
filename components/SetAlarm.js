@@ -38,9 +38,7 @@ const SetAlarm = () => {
     const onChange = (event, selectedDate) => {
         validateTime(selectedDate);
         Notifications.cancelAllScheduledNotificationsAsync(); // Cancel any previously scheduled notifications
-        console.log("Notifications cancelled from onChange.");
         schedulePushNotification(selectedDate); // Schedule notification for time entered
-        console.log("Notification set from onChange: " + selectedDate);
     };
 
     // Ensure that alarm is scheduled for the future
@@ -48,29 +46,24 @@ const SetAlarm = () => {
         let now = new Date();
         let interval = (input.getTime() - now.getTime());
         if (interval <= 0) { // Specified time has already passed for today
-            console.log("Day added.");
             input.setDate(input.getDate() + 1); // Set alarm for the next day instead
         }
         else if (interval > 86400000){ // Remove extra day that may have been added on
-            console.log("Day removed.")
             input.setDate(input.getDate() - 1); // Set alarm for current day if time has not yet passed
         }
         setDate(input); // Update datetime picker
-        console.log("Time after validation: " + input);
     }
 
     // Alarm toggle
     const [isEnabled, setIsEnabled] = useState(true);
     const toggleSwitch = () => {
         if (isEnabled == true){ // Turn toggle off, cancel any scheduled notifications
-            console.log("Notifications cancelled from toggle.");
             Notifications.cancelAllScheduledNotificationsAsync();
         }
         else if (isEnabled != true) { // Turn toggle on, schedule alarm for time displayed on the picker
             Notifications.cancelAllScheduledNotificationsAsync(); // Cancel any previously scheduled notifications
             validateTime(date);
             schedulePushNotification(date);
-            console.log("Notification set from toggle: " + date);
         }
         setIsEnabled(previousState => !previousState); // Visibly change toggle
     }
@@ -182,7 +175,6 @@ async function registerForPushNotificationsAsync() {
             return;
         }
         token = (await Notifications.getExpoPushTokenAsync()).data;
-        console.log(token); // delete this line
     } else {
         alert('Must use physical device for Push Notifications');
     }
