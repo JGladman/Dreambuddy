@@ -4,6 +4,8 @@ import { StyleSheet, Text, View } from "react-native";
 import Layout from "./components/Layout";
 import RecordingPage from "./components/RecordingPage";
 //import {Context} from "./Context";
+import Page from "./components/Date";
+import EmptyPage from "./components/EmptyDate";
 
 export function App() {
   const [content, setContent] = useState(
@@ -13,12 +15,12 @@ export function App() {
   );
 
   return (
-    <Context.Provider value = {theme}>
-      <div>
-      </div>
-    </Context.Provider>);
-    <Layout content={content} /> ;
-  };
+    <Context.Provider value={theme}>
+      <div></div>
+    </Context.Provider>
+  );
+  <Layout content={content} />;
+}
 
 const styles = StyleSheet.create({
   container: {
