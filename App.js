@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import SetAlarm from "./components/SetAlarm";
 import Layout from "./components/Layout";
 import Calendar from "./components/Calendar";
 import Page from "./components/Date";
@@ -18,7 +19,7 @@ export default function App() {
         <Text>Hello2</Text>
       </View>
     );
-  return <Layout content={content} />;
+  return <SetAlarm content={content} />;
 }
 
 const styles = StyleSheet.create({
