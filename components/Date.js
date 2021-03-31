@@ -1,7 +1,9 @@
 /** JavaScript file for specific date page */
 
 import React, { useState } from "react";
-import { StyleSheet, Text, Switch, View, TextInput, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, Switch, View, TouchableWithoutFeedback, TextInput, TouchableOpacity, Keyboard } from "react-native";
+import { Icon } from "react-native-elements";
+
 
 const Page = () => {
     const [text, onChangeText] = React.useState(null);
@@ -14,107 +16,112 @@ const Page = () => {
     const toggleSwitch2 = () => setIsEnabled2(previousState => !previousState);
     const toggleSwitch3 = () => setIsEnabled3(previousState => !previousState);
     const toggleSwitch4 = () => setIsEnabled4(previousState => !previousState);
-
+    
+    
     return (
         <View style={styles.container}>
+            <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <View>
-                <TouchableOpacity style={styles.back}>
-                    <Text>Back</Text>
-                </TouchableOpacity>            
-            </View>
-            <View >
-                <Text style={styles.date}>Thursday, March 4</Text>
-            </View>
-            <View >
-                <Text style={styles.text}>Recording goes here</Text>
-            </View>
-            <View style={styles.hr}></View>
-            <View >
-                <Text style={styles.text} >Dream Characterization</Text>
-            </View>
+                <View>
+                    <TouchableOpacity style={styles.back}>
+                        <Icon name="chevron-left" type="material-community" />
+                        <Text>Back</Text>
+                    </TouchableOpacity>            
+                </View>
+                <View >
+                    <Text style={styles.date}>Thursday, March 4</Text>
+                </View>
+                <View >
+                    <Text style={styles.text}>Recording goes here</Text>
+                </View>
+                <View style={styles.hr}></View>
+                <View >
+                    <Text style={styles.text} >Dream Characterization</Text>
+                </View>
 
-            {/* didn't work */}
-            <View>
-                <View  style ={styles.fixToText}>
-                    <View style={styles.selection}>
-                        <Text style={styles.label}>Positive</Text>
+                <View>
+                    <View  style ={styles.fixToText}>
+                        <View style={styles.selection}>
+                            <Text style={styles.label}>Positive</Text>
+                        </View>
+                        <View style={styles.switch}>
+                            <Switch
+                                trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
+                                thumbColor={isEnabled1 ? "#7664CE" : "#f4f3f4"}
+                                ios_backgroundColor="#7664CE"
+                                onValueChange={toggleSwitch1}
+                                value={isEnabled1}
+                            /> 
+                        </View>
+                        <View style={styles.selection} >
+                            <Text style ={styles.label}>Negative</Text>
+                        </View>
                     </View>
-                    <View style={styles.switch}>
-                        <Switch
+
+                    <View  style ={styles.fixToText}>
+                        <View style={styles.selection}>
+                            <Text style={styles.label}>Realistic</Text>
+                        </View>
+                        <View style={styles.switch} >
+                            <Switch
+                                trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
+                                thumbColor={isEnabled2 ? "#7664CE" : "#f4f3f4"}
+                                ios_backgroundColor="#7664CE"
+                                onValueChange={toggleSwitch2}
+                                value={isEnabled2}
+                            /> 
+                        </View>
+                        <View style={styles.selection} >
+                            <Text style ={styles.label}>Unrealistic</Text>
+                        </View>
+                    </View>
+
+                    <View  style ={styles.fixToText}>
+                        <View style={styles.selection}>
+                            <Text style={styles.label}>Lucid</Text>
+                        </View>
+                        <View style={styles.switch} >
+                            <Switch
                             trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
-                            thumbColor={isEnabled1 ? "#f5dd4b" : "#f4f3f4"}
-                            ios_backgroundColor="#3e3e3e"
-                            onValueChange={toggleSwitch1}
-                            value={isEnabled1}
-                        /> 
+                            thumbColor={isEnabled3 ? "#7664CE" : "#f4f3f4"}
+                            ios_backgroundColor="#7664CE"
+                                onValueChange={toggleSwitch3}
+                                value={isEnabled3}
+                            /> 
+                        </View>
+                        <View style={styles.selection} >
+                            <Text style ={styles.label}>Not Lucid</Text>
+                        </View>
                     </View>
-                    <View style={styles.selection} >
-                        <Text style ={styles.label}>Negative</Text>
+
+                    <View  style ={styles.fixToText}>
+                        <View style={styles.selection}>
+                            <Text style={styles.label}>Short</Text>
+                        </View>
+                        <View style={styles.switch} >
+                            <Switch
+                            trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
+                            thumbColor={isEnabled4 ? "#7664CE" : "#f4f3f4"}
+                            ios_backgroundColor="#7664CE"
+                                onValueChange={toggleSwitch4}
+                                value={isEnabled4}
+                            /> 
+                        </View>
+                        <View style={styles.selection} >
+                            <Text style ={styles.label}>Long</Text>
+                        </View>
                     </View>
                 </View>
 
-                <View  style ={styles.fixToText}>
-                    <View style={styles.selection}>
-                        <Text style={styles.label}>Realistic</Text>
-                    </View>
-                    <View style={styles.switch} >
-                        <Switch
-                            trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
-                            thumbColor={isEnabled2 ? "#f5dd4b" : "#f4f3f4"}
-                            ios_backgroundColor="#3e3e3e"
-                            onValueChange={toggleSwitch2}
-                            value={isEnabled2}
-                        /> 
-                    </View>
-                    <View style={styles.selection} >
-                        <Text style ={styles.label}>Unrealistic</Text>
+                <View style={styles.hr}></View>
+                <View>
+                    <Text style={styles.text} >Notes</Text>
+                </View>
+                    <View style={styles.notes}>
+                        <TextInput multiline style={styles.input} editable onChangeText={onChangeText} value={text} placeholder="Type Here"></TextInput>
                     </View>
                 </View>
-
-                <View  style ={styles.fixToText}>
-                    <View style={styles.selection}>
-                        <Text style={styles.label}>Lucid</Text>
-                    </View>
-                    <View style={styles.switch} >
-                        <Switch
-                            trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
-                            thumbColor={isEnabled3 ? "#f5dd4b" : "#f4f3f4"}
-                            ios_backgroundColor="#3e3e3e"
-                            onValueChange={toggleSwitch3}
-                            value={isEnabled3}
-                        /> 
-                    </View>
-                    <View style={styles.selection} >
-                        <Text style ={styles.label}>Not Lucid</Text>
-                    </View>
-                </View>
-
-                <View  style ={styles.fixToText}>
-                    <View style={styles.selection}>
-                        <Text style={styles.label}>Short</Text>
-                    </View>
-                    <View style={styles.switch} >
-                        <Switch
-                            trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
-                            thumbColor={isEnabled4 ? "#f5dd4b" : "#f4f3f4"}
-                            ios_backgroundColor="#3e3e3e"
-                            onValueChange={toggleSwitch4}
-                            value={isEnabled4}
-                        /> 
-                    </View>
-                    <View style={styles.selection} >
-                        <Text style ={styles.label}>Long</Text>
-                    </View>
-                </View>
-            </View>
-
-            <View style={styles.hr}></View>
-            <View>
-                <Text style={styles.text} >Notes</Text>
-            </View>
-            <View style={{padding: 8, flex:3}}>
-                <TextInput multiline style={styles.input} onChangeText={onChangeText} value={text} placeholder="Type Here"></TextInput>
-            </View>
+            </TouchableWithoutFeedback>
         </View>
     );
 };
@@ -123,11 +130,14 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: "100%",
-        padding: "1.5em",
+        padding: "5%",
         fontFamily: "Proxima Nova",
+        flexDirection: "column"
     },
     back: {
-        padding: '1em'
+        flexDirection: "row",
+        alignItems: "center",
+        marginTop: "10%"
     },
     button: {
         borderRadius: 8,
@@ -140,7 +150,8 @@ const styles = StyleSheet.create({
     date: {
         fontSize: 25,
         fontWeight: "bold",
-        padding: 8
+        padding: 8,
+        marginTop: "10%"
     },
     label : {
         color: '#292929',
@@ -173,7 +184,7 @@ const styles = StyleSheet.create({
         height: "100%",
     },
     hr: {
-        borderBottomColor: '#292929',
+        borderBottomColor: '#C4C4C4',
         borderBottomWidth: 1,
         marginTop: 25,
         width: "100%"
@@ -183,6 +194,9 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         flex: 0.25
     },
+    notes: {
+        padding: 8, 
+        height: "25%"    }
 
 })
 
