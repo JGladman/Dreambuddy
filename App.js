@@ -1,22 +1,14 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import SetAlarm from "./components/SetAlarm";
-import Layout from "./components/Layout";
-import RecordingPage from "./components/RecordingPage";
-//import {Context} from "./Context";
-import Page from "./components/Date";
-import EmptyPage from "./components/EmptyDate";
-import Calendar from "./components/Calendar";
-import Page from "./components/Date";
-import EmptyPage from "./components/EmptyDate";
-
+import React, { useContext } from "react";
+import { StyleSheet, Text, View, Button } from "react-native";
+import Layout from "./components/Common/Layout";
+import { PageContext, PageProvider } from "./components/Context/PageContext";
+import Calendar from "./components/Calendar/Calendar";
 export default function App() {
-  const [content, setContent] = useState(
-    <View>
-      <Calendar />
-    </View>
-  );
+  // const [content, setContent] = useState(
+  //   <View>
+  //     <Calendar />
+  //   </View>
+  // );
 
   // return (
   //   <Context.Provider value={theme}>
@@ -24,13 +16,18 @@ export default function App() {
   //   </Context.Provider>
   // );
   // <Layout content={content} />;
-  const onPress = () =>
-    setContent(
-      <View>
-        <Text>Hello2</Text>
-      </View>
-    );
-  return <SetAlarm content={content} />;
+
+  return (
+    <PageProvider>
+      <PageContext.Consumer>
+        {(context) => (
+          <View>
+            <Layout content={<View>{context.state.page}</View>} />
+          </View>
+        )}
+      </PageContext.Consumer>
+    </PageProvider>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -49,5 +46,3 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-
-export default RecordingPage;

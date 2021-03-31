@@ -1,35 +1,32 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { StyleSheet, Button, Text, View, Alert } from "react-native";
-import Layout from "./Layout";
+import Layout from "../Common/Layout";
 
 //import RecordingPage from "../App";
 
 const RecordingPage = () => {
   const [content, setContent] = useState(
-
     <View style={styles.container}>
       <Text>Stop Alarm and Start Recording!</Text>
-      <View style = {styles.snooze}>
+      <View style={styles.snooze}>
         <Button
-        title="Snooze"
-        color ="#C4C4C4"
-        onPress={() => Alert.alert('Simple Button pressed')}
+          title="Snooze"
+          color="#C4C4C4"
+          onPress={() => Alert.alert("Simple Button pressed")}
         />
       </View>
-      <View style = {styles.noDream}>
+      <View style={styles.noDream}>
         <Button
-        title="No Dream"
-        color ="#C4C4C4"
-        onPress={() => Alert.alert('Simple Button pressed')}
+          title="No Dream"
+          color="#C4C4C4"
+          onPress={() => Alert.alert("Simple Button pressed")}
         />
       </View>
-
     </View>
-
   );
   return <Layout content={content} />;
-  };
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -43,7 +40,7 @@ const styles = StyleSheet.create({
   header: {
     flex: 1,
   },
-  time:{
+  time: {
     flex: 2,
   },
   content: {
@@ -57,25 +54,24 @@ const styles = StyleSheet.create({
     height: "25%",
     alignItems: "center",
     position: "absolute",
-    bottom: 30, 
-    left: 30, 
-    color: 'black',
-
+    bottom: 30,
+    left: 30,
+    color: "black",
   },
   noDream: {
     width: "30%",
     height: "25%",
     alignItems: "center",
     position: "absolute",
-    bottom: 30, 
+    bottom: 30,
     right: 30,
-    color: 'black',
+    color: "black",
   },
 
   textStyle: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 50,
-    color: 'black',
+    color: "black",
   },
   navbar: {
     flex: 1,
