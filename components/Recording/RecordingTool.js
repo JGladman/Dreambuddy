@@ -2,9 +2,11 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Button } from "react-native";
 import { Icon } from "react-native-elements";
 import { Audio } from "expo-av";
+import { Context } from "../Context/PageContext";
 
 export default function RecordingTool() {
   const [recording, setRecording] = React.useState();
+  const [active, setActive] = React.useState(false);
 
   async function startRecording() {
     try {
@@ -15,6 +17,7 @@ export default function RecordingTool() {
         playsInSilentModeIOS: true,
       });
       console.log("Starting recording..");
+      setActive(true);
       const recording = new Audio.Recording(); //variable store the new recording
       await recording.prepareToRecordAsync(
         Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY
@@ -29,21 +32,19 @@ export default function RecordingTool() {
 
   async function stopRecording() {
     console.log("Stopping recording..");
+    setActive(false);
     setRecording(recording);
     await recording.stopAndUnloadAsync();
     const uri = recording.getURI(); //saves the recording in the URI
-    console.log("Loading Sound");
     const { sound } = await Audio.Sound.createAsync(
       { uri: uri },
       { shouldPlay: true }
     );
-    //Audio.Sound.setSound(sound);
-
-    console.log("Playing Sound");
-    sound.setVolumeAsync(1);
-    await sound.playAsync();
-    console.log("Recording stopped and stored at", uri);
-    //return uri;
+    // console.log("Playing Sound");
+    // sound.setVolumeAsync(1);
+    // await sound.playAsync();
+    //console.log("Recording stored at", uri);
+    return uri;
   }
   /*
         async function playSound() {
@@ -61,23 +62,42 @@ export default function RecordingTool() {
     */
 
   return (
-    <View>
-      <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.recordingbutton}
-          onPress={startRecording}
-        >
-          <Icon name="microphone" size={130} type="material-community" />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.recordingbutton}
-          onPress={stopRecording}
-        >
-          <Icon name="stop-circle" size={100} type="material-community" />
-        </TouchableOpacity>
-      </View>
-    </View>
+    <Context.Consumer>
+      {(context) => (
+        <View>
+          <View style={styles.container}>
+            {active ? (
+              <TouchableOpacity
+                style={styles.recordingbutton}
+                onPress={async () => {
+                  const uri = await stopRecording();
+                  context.setURI(uri);
+                  const { sound } = await Audio.Sound.createAsync(
+                    { uri: context.state.uri },
+                    { shouldPlay: true }
+                  );
+                  console.log("Playing Sound");
+                  sound.setVolumeAsync(1);
+                  await sound.playAsync();
+                }}
+              >
+                <Icon name="microphone" size={130} type="material-community" />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                style={styles.recordingbutton}
+                onPress={() => {
+                  startRecording();
+                  console.log(context.state.uri);
+                }}
+              >
+                <Icon name="microphone" size={130} type="material-community" />
+              </TouchableOpacity>
+            )}
+          </View>
+        </View>
+      )}
+    </Context.Consumer>
   );
 }
 //<Button title="Play Sound" onPress={playSound} />
@@ -85,7 +105,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     width: "100%",
-    height: "100%",
+    height: "50%",
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",

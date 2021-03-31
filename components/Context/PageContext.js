@@ -80,20 +80,24 @@ import React, { Component } from "react";
 import Calendar from "../Calendar/Calendar";
 import SetAlarm from "../SetAlarm/SetAlarm";
 import RecordingPage from "../Recording/RecordingPage";
+import Date from "../Analysis/Date";
+import EmptyDate from "../Analysis/EmptyDate";
 
-export const PageContext = React.createContext();
+export const Context = React.createContext();
 
-export class PageProvider extends Component {
+export class Provider extends Component {
   state = {
     page: <Calendar />,
+    uri: "",
   };
 
   render() {
     return (
-      <PageContext.Provider
+      <Context.Provider
         value={{
           state: this.state,
-          setAlarm: () => {
+          setAlarm: (test) => {
+            console.log(test);
             this.setState({
               page: <SetAlarm />,
             });
@@ -108,10 +112,25 @@ export class PageProvider extends Component {
               page: <RecordingPage />,
             });
           },
+          setDate: () => {
+            this.setState({
+              page: <Date />,
+            });
+          },
+          setEmpty: () => {
+            this.setState({
+              page: <EmptyDate />,
+            });
+          },
+          setURI: (uri) => {
+            this.setState({
+              uri: uri,
+            });
+          },
         }}
       >
         {this.props.children}
-      </PageContext.Provider>
+      </Context.Provider>
     );
   }
 }

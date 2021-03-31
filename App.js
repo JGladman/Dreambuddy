@@ -1,32 +1,20 @@
 import React, { useContext } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 import Layout from "./components/Common/Layout";
-import { PageContext, PageProvider } from "./components/Context/PageContext";
+import { Context, Provider } from "./components/Context/PageContext";
 import Calendar from "./components/Calendar/Calendar";
 export default function App() {
-  // const [content, setContent] = useState(
-  //   <View>
-  //     <Calendar />
-  //   </View>
-  // );
-
-  // return (
-  //   <Context.Provider value={theme}>
-  //     <div></div>
-  //   </Context.Provider>
-  // );
-  // <Layout content={content} />;
-
+  console.log("Reloaded");
   return (
-    <PageProvider>
-      <PageContext.Consumer>
+    <Provider>
+      <Context.Consumer>
         {(context) => (
           <View>
             <Layout content={<View>{context.state.page}</View>} />
           </View>
         )}
-      </PageContext.Consumer>
-    </PageProvider>
+      </Context.Consumer>
+    </Provider>
   );
 }
 

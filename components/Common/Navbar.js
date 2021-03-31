@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Icon } from "react-native-elements";
-import { PageContext } from "../Context/PageContext";
+import { Context } from "../Context/PageContext";
 
 const Navbar = () => {
   //const { state, setState } = useContext(PageContext);
 
   return (
-    <PageContext.Consumer>
+    <Context.Consumer>
       {(context) => (
         <View style={styles.container}>
           <TouchableOpacity
             style={styles.navbutton}
-            onPress={() => context.setAlarm()}
+            onPress={() => context.setAlarm("test")}
           >
             <Icon name="alarm" type="material-community" />
           </TouchableOpacity>
@@ -30,7 +30,7 @@ const Navbar = () => {
           </TouchableOpacity>
         </View>
       )}
-    </PageContext.Consumer>
+    </Context.Consumer>
   );
 };
 
