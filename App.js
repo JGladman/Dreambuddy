@@ -2,24 +2,24 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Layout from "./components/Layout";
+import RecordingPage from "./components/RecordingPage";
+//import {Context} from "./Context";
 import Page from "./components/Date";
 import EmptyPage from "./components/EmptyDate";
 
-
-
-export default function App() {
+export function App() {
   const [content, setContent] = useState(
     <View>
       <Text>Hello</Text>
     </View>
   );
-  const onPress = () =>
-    setContent(
-      <View>
-        <Text>Hello2</Text>
-      </View>
-    );
-  return <Layout content={content} />;
+
+  return (
+    <Context.Provider value={theme}>
+      <div></div>
+    </Context.Provider>
+  );
+  <Layout content={content} />;
 }
 
 const styles = StyleSheet.create({
@@ -38,3 +38,5 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+export default RecordingPage;
