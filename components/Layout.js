@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 10,
+    justifyContent: "center",
   },
   navbar: {
     flex: 1,
