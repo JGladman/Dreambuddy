@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Layout from "./components/Layout";
 import Calendar from "./components/Calendar";
+import Page from "./components/Date";
+import EmptyPage from "./components/EmptyDate";
 
 export default function App() {
   const [content, setContent] = useState(
