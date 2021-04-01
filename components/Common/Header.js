@@ -23,7 +23,7 @@ const Header = () => {
         {/* <Text style={styles.text}>Dreambuddy</Text> */}
         <Image
           style={{ width: 300, height: 100 }}
-          source={require("../../assets/logo.png")}
+          source={require("../../assets/transparent logo.png")}
         />
       </View>
     </View>
