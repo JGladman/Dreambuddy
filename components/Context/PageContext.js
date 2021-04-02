@@ -87,7 +87,7 @@ export const Context = React.createContext();
 
 export class Provider extends Component {
   state = {
-    page: <Date />,
+    page: <EmptyDate />,
     dateSelected: "",
     uri: "",
 
