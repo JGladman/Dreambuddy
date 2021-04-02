@@ -87,8 +87,13 @@ export const Context = React.createContext();
 
 export class Provider extends Component {
   state = {
-    page: <Calendar />,
+    page: <Date />,
+    dateSelected: "",
     uri: "",
+
+    // TODO:   Dictionary of key-value pairs:
+    //         key: uri
+    //         value: date recorded
   };
 
   render() {
@@ -127,6 +132,7 @@ export class Provider extends Component {
               uri: uri,
             });
           },
+          // TODO: Date Selected
         }}
       >
         {this.props.children}
