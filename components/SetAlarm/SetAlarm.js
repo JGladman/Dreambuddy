@@ -15,6 +15,7 @@ import Navbar from "../Common/Navbar";
 import * as Notifications from "expo-notifications";
 import Constants from "expo-constants";
 
+
 const SetAlarm = () => {
   const [expoPushToken, setExpoPushToken] = useState("");
   const [notification, setNotification] = useState(false);
@@ -85,10 +86,10 @@ const SetAlarm = () => {
   // Stylesheet
   const styles = StyleSheet.create({
     container: {
-      alignItems: "center", // centers content on screen horizontally
       width: "100%",
       height: "100%",
-      flexDirection: "column",
+      backgroundColor: "#503d74",
+      alignItems: "center", // centers container horizontally
     },
     rowContainer: {
       flexDirection: "row",
@@ -98,50 +99,61 @@ const SetAlarm = () => {
     label: {
       paddingRight: 20, // gives space between label and toggle
       fontSize: 20,
+      fontFamily: "roboto-regular",
     },
     h1: {
-      fontSize: 35,
-      flex: 1,
-      paddingTop: "10%",
+      fontSize: 25,
+      //flex: 1,
+      fontFamily: "roboto-bold",
     },
     timePicker: {
-      flex: 1,
+      //flex: 1,
       width: 100,
     },
     toggleContainer: {
-      flex: 1,
+      //flex: 1,
       justifyContent: "center",
-      paddingBottom: "50%",
     },
     headerWrapper: {
       paddingTop: "15%",
+    },
+    roundedBox: {
+      borderRadius: 20,
+      backgroundColor: "#FFFFFF",
+      alignItems: "center", // centers content on screen horizontally
+      height: "60%",
+      width: "70%",
+      justifyContent: "space-evenly", // even vertical spacing between the 3 elements
+      //alignContent: "space-around",
     },
   });
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.h1}>Set Alarm</Text>
-      <View style={styles.timePicker}>
-        <DateTimePicker
-          testID="dateTimePicker"
-          value={date}
-          mode={"time"}
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
-        />
-      </View>
-
-      <View style={styles.toggleContainer}>
-        <View style={styles.rowContainer}>
-          <Text style={styles.label}>Active:</Text>
-          <Switch
-            trackColor={{ false: "#C4C4C4", true: "#7664CE" }}
-            thumbColor={isEnabled ? "#FFFFFF" : "#FFFFFF"}
-            ios_backgroundColor="#C4C4C4"
-            onValueChange={toggleSwitch}
-            value={isEnabled}
+        <View style={styles.roundedBox}>
+        <Text style={styles.h1}>Set Alarm</Text>
+        <View style={styles.timePicker}>
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode={"time"}
+            is24Hour={true}
+            display="default"
+            onChange={onChange}
           />
+        </View>
+
+        <View style={styles.toggleContainer}>
+          <View style={styles.rowContainer}>
+            <Text style={styles.label}>Active:</Text>
+            <Switch
+              trackColor={{ false: "#C4C4C4", true: "#503d74" }}
+              thumbColor={isEnabled ? "#FFFFFF" : "#FFFFFF"}
+              ios_backgroundColor="#C4C4C4"
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+            />
+          </View>
         </View>
       </View>
     </SafeAreaView>

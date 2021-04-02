@@ -37,14 +37,14 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   header: {
-    flex: 1,
+    flex: 3,
   },
   content: {
     flex: 10,
     justifyContent: "center",
   },
   navbar: {
-    flex: 1,
+    flex: 1.5,
   },
 });
 
