@@ -8,7 +8,9 @@ import {
   TextInput,
   Alert,
   TouchableOpacity,
+  Image
 } from "react-native";
+import { Icon } from "react-native-elements";
 
 const EmptyDate = () => {
   const [text, onChangeText] = React.useState(null);
@@ -29,10 +31,12 @@ const EmptyDate = () => {
         <Text style={styles.text}>No dream recorded. Add one now!</Text>
       </View>
 
-      <Image
-          style={{ width: "75%" }}
-          source={require("../../assets/moon-only.png")}
-        />
+      <View style={{padding: "10%", justifyContent: "center", alignItems: "center" }}>
+        <Image
+            style={styles.image}
+            source={require("../../assets/moon-only.jpg")}
+          />
+      </View>
     </View>
   );
 };
@@ -65,6 +69,12 @@ const styles = StyleSheet.create({
     marginTop: "3%",
     fontFamily: "roboto-bold",
   },
+  image: {
+    flex: 1,
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
+    }
 });
 
 export default EmptyDate;
