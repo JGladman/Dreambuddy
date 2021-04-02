@@ -53,9 +53,9 @@ const Date = () => {
               </View>
               <View style={styles.switch}>
                 <Switch
-                  trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
-                  thumbColor={isEnabled1 ? "#7664CE" : "#f4f3f4"}
-                  ios_backgroundColor="#7664CE"
+                  trackColor={{ false: "#fee375", true: "#503d74" }}
+                  thumbColor={isEnabled1 ? "#FFFFFF" : "#FFFFFF"}
+                  ios_backgroundColor="#fee375"
                   onValueChange={toggleSwitch1}
                   value={isEnabled1}
                 />
@@ -71,9 +71,9 @@ const Date = () => {
               </View>
               <View style={styles.switch}>
                 <Switch
-                  trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
-                  thumbColor={isEnabled2 ? "#7664CE" : "#f4f3f4"}
-                  ios_backgroundColor="#7664CE"
+                  trackColor={{ false: "#fee375", true: "#503d74" }}
+                  thumbColor={isEnabled2 ? "#FFFFFF" : "#FFFFFF"}
+                  ios_backgroundColor="#fee375"
                   onValueChange={toggleSwitch2}
                   value={isEnabled2}
                 />
@@ -89,9 +89,9 @@ const Date = () => {
               </View>
               <View style={styles.switch}>
                 <Switch
-                  trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
-                  thumbColor={isEnabled3 ? "#7664CE" : "#f4f3f4"}
-                  ios_backgroundColor="#7664CE"
+                  trackColor={{ false: "#fee375", true: "#503d74" }}
+                  thumbColor={isEnabled3 ? "#FFFFFF" : "#FFFFFF"}
+                  ios_backgroundColor="#fee375"
                   onValueChange={toggleSwitch3}
                   value={isEnabled3}
                 />
@@ -107,9 +107,9 @@ const Date = () => {
               </View>
               <View style={styles.switch}>
                 <Switch
-                  trackColor={{ false: "#7664CE", true: "#BAB1E7" }}
-                  thumbColor={isEnabled4 ? "#7664CE" : "#f4f3f4"}
-                  ios_backgroundColor="#7664CE"
+                  trackColor={{ false: "#fee375", true: "#503d74" }}
+                  thumbColor={isEnabled4 ? "#FFFFFF" : "#FFFFFF"}
+                  ios_backgroundColor="#fee375"
                   onValueChange={toggleSwitch4}
                   value={isEnabled4}
                 />
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   hr: {
-    borderBottomColor: "#C4C4C4",
+    borderBottomColor: "#c4c4c4",
     borderBottomWidth: 1,
     marginTop: 25,
     width: "100%",
