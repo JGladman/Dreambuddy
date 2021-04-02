@@ -31,7 +31,7 @@ const EmptyDate = () => {
 
       <Image
           style={{ width: "75%" }}
-          source={require("../../assets/moon-only.png")}
+          source={require("../../assets/moon-only.jpg")}
         />
     </View>
   );
