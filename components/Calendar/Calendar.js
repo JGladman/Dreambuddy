@@ -9,7 +9,7 @@ const CalendarPage = () => {
       theme={{
         textDisabledColor: 'white',
         textSectionTitleColor: '#c9c9c9', // days of week, grey
-        selectedDayTextColor: '#503d74', // number when tapped, light purple
+        selectedDayTextColor: '#503d74', // number when tapped, dark purple
         todayTextColor: '#9279b9', // today's number, light purple
         dayTextColor: '#503d74', // number, dark purple
         dotColor: '#fee375', // small dot, yellow
