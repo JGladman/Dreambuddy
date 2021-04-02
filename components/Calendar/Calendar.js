@@ -1,12 +1,20 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Calendar, CalendarList, Agenda } from "react-native-calendars";
+import { Context } from "../Context/PageContext";
 
 const CalendarPage = () => {
   return (
-    <View style={styles.container}>
-      <Calendar theme={calendarStyle} />
-    </View>
+    <Context.Consumer>
+      {(context) => (
+        <View style={styles.container}>
+          <Calendar
+            theme={calendarStyle}
+            onDayPress={(day) => context.setDate()}
+          />
+        </View>
+      )}
+    </Context.Consumer>
   );
 };
 
