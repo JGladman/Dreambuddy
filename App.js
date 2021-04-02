@@ -7,7 +7,7 @@ import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 
 export default function App() {
-  console.log("Reloaded");
+  console.log("hi");
 	const [fontLoaded, setFontLoaded] = useState(false);
 	// load fonts
 	const loadFonts = () => {

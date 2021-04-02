@@ -98,11 +98,13 @@ const SetAlarm = () => {
     label: {
       paddingRight: 20, // gives space between label and toggle
       fontSize: 20,
+      fontFamily: "roboto-regular",
     },
     h1: {
       fontSize: 35,
       flex: 1,
       paddingTop: "10%",
+      fontFamily: "roboto-bold",
     },
     timePicker: {
       flex: 1,

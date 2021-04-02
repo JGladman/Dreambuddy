@@ -145,13 +145,13 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     padding: "5%",
-    fontFamily: "Proxima Nova",
     flexDirection: "column",
   },
   back: {
     flexDirection: "row",
     alignItems: "center",
     marginTop: "10%",
+    fontFamily: "roboto-regular",
   },
   button: {
     borderRadius: 8,
@@ -166,10 +166,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     padding: 8,
     marginTop: "10%",
+    fontFamily: "roboto-bold",
   },
   label: {
     color: "#292929",
     fontSize: 15,
+    fontFamily: "roboto-regular",
   },
   fixToText: {
     flexDirection: "row",
@@ -187,8 +189,8 @@ const styles = StyleSheet.create({
     color: "#292929",
     padding: 8,
     fontSize: 16,
-    fontWeight: "bold",
     marginTop: 20,
+    fontFamily: "roboto-bold",
   },
   input: {
     borderWidth: 1,

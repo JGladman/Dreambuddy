@@ -40,18 +40,19 @@ const styles = StyleSheet.create({
   },
   back: {
     padding: "1em",
+    fontFamily: "roboto-regular",
   },
   date: {
     fontSize: 25,
-    fontWeight: "bold",
     padding: 8,
+    fontFamily: "roboto-bold",
   },
   text: {
     color: "grey",
     padding: 8,
     fontSize: 16,
-    fontWeight: "bold",
     marginTop: 20,
+    fontFamily: "roboto-regular",
   },
 });
 

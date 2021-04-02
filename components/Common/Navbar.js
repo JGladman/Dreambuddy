@@ -14,19 +14,19 @@ const Navbar = () => {
             style={styles.navbutton}
             onPress={() => context.setAlarm("test")}
           >
-            <Icon name="alarm" type="material-community" />
+            <Icon name="alarm" type="material-community" color="#503d74"/>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.navbutton}
             onPress={() => context.setCalendar()}
           >
-            <Icon name="calendar" type="material-community" />
+            <Icon name="calendar" type="material-community" color="#503d74"/>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.navbutton}
             onPress={() => context.setRecording()}
           >
-            <Icon name="microphone" type="material-community" />
+            <Icon name="microphone" type="material-community" color="#503d74"/>
           </TouchableOpacity>
         </View>
       )}
@@ -36,11 +36,11 @@ const Navbar = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#D6D0F1",
+    backgroundColor: "#f5f5f5",
     width: "100%",
     height: "100%",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     flexDirection: "row",
   },
   navbutton: {
@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
 
   buttonbg: {
     width: "100%",
-    backgroundColor: "red",
     alignItems: "center",
     justifyContent: "center",
   },

@@ -32,15 +32,16 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    width: "100%",
+    width: "100",
     height: "100%",
   },
   container: {
-    backgroundColor: "#D6D0F1",
+    backgroundColor: "#503d74",
     width: "100%",
     height: "100%",
     alignItems: "center",
     justifyContent: "center",
+    paddingTop: "10%",
   },
   text: {
     justifyContent: "center",
