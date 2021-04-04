@@ -87,6 +87,7 @@ export const Context = React.createContext();
 
 export class Provider extends Component {
   state = {
+    pageStr: "empty",
     page: <EmptyDate />,
     dateSelected: "",
     uri: "",
@@ -104,26 +105,31 @@ export class Provider extends Component {
           setAlarm: (test) => {
             console.log(test);
             this.setState({
+              pageStr: "alarm",
               page: <SetAlarm />,
             });
           },
           setCalendar: () => {
             this.setState({
+              pageStr: "calendar",
               page: <Calendar />,
             });
           },
           setRecording: () => {
             this.setState({
+              pageStr: "recording",
               page: <RecordingPage />,
             });
           },
           setDate: () => {
             this.setState({
+              pageStr: "date",
               page: <Date />,
             });
           },
           setEmpty: () => {
             this.setState({
+              pageStr: "empty",
               page: <EmptyDate />,
             });
           },
