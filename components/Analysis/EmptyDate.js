@@ -47,7 +47,7 @@ const EmptyDate = () => {
             <TouchableOpacity onPress={() => context.setRecording()}>
               <Icon
                 color="#503D74"
-                name="chevron-left"
+                name="plus-circle-outline"
                 type="material-community"
               />
             </TouchableOpacity>
