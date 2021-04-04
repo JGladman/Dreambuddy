@@ -275,16 +275,13 @@ const styles = StyleSheet.create({
     height: "3em",
     padding: 10,
     height: "100%",
-<<<<<<< HEAD
   },
   hr: {
     borderBottomColor: "#c4c4c4",
     borderBottomWidth: 1,
     marginTop: 25,
     width: "100%",
-=======
     borderColor: "#503D74",
->>>>>>> ae193b118b8f7fca759d6f455e953fd2f3b93410
   },
   switch: {
     alignItems: "center",
