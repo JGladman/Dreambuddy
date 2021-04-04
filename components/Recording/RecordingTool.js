@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
+
 import { Icon } from "react-native-elements";
 import { Audio } from "expo-av";
 import { Context } from "../Context/PageContext";
@@ -105,6 +106,10 @@ export default function RecordingTool() {
                 }}
               >
                 <Icon name="microphone" size={130} type="material-community" />
+                {/* <Image
+              style={styles.image}
+              source={require("../../assets/moon-only.jpg")}
+            /> */}
               </TouchableOpacity>
             ) : (
               <TouchableOpacity
@@ -150,7 +155,5 @@ const styles = StyleSheet.create({
 
   buttonbg: {
     width: "100%",
-    //alignItems: "center",
-    //justifyContent: "center",
   },
 });
