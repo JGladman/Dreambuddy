@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "./Header";
 import Navbar from "./Navbar";
-import RecordingTool from "./RecordingTool";
-import GetTime from"./GetTime";
+import RecordingTool from "../Recording/RecordingTool";
+import GetTime from "../Recording/GetTime";
 import { StyleSheet, Text, View } from "react-native";
 
 /*
@@ -18,17 +18,9 @@ const Layout = ({ content }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Header/>
-      </View>
-      
-      <View style={styles.time}>
-        <GetTime />
+        <Header />
       </View>
 
-      <View style={styles.recording}>
-        <RecordingTool/>
-      </View>
-      
       <View style={styles.content}>{content}</View>
 
       <View style={styles.navbar}>
@@ -45,19 +37,14 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   header: {
-    flex: 1,
-  },
-  time: {
-    flex:2,
-  },
-  content: {
     flex: 3,
   },
-  recording:{
-    flex: 2,
+  content: {
+    flex: 10,
+    justifyContent: "center",
   },
   navbar: {
-    flex: 1,
+    flex: 1.5,
   },
 });
 

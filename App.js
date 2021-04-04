@@ -1,25 +1,57 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import Layout from "./components/Layout";
-import RecordingPage from "./components/RecordingPage";
-//import {Context} from "./Context";
-import Page from "./components/Date";
-import EmptyPage from "./components/EmptyDate";
+import React, { useContext, useState } from "react";
+import { StyleSheet, Text, View, Button } from "react-native";
+import Layout from "./components/Common/Layout";
+import { Context, Provider } from "./components/Context/PageContext";
+import Date from "./components/Analysis/Date";
+import Empty from "./components/Analysis/EmptyDate";
+import * as Font from "expo-font";
+import AppLoading from "expo-app-loading";
 
-export function App() {
-  const [content, setContent] = useState(
-    <View>
-      <Text>Hello</Text>
-    </View>
-  );
+export default function App() {
+  console.log("hi");
+  const [fontLoaded, setFontLoaded] = useState(false);
+  // load fonts
+  const loadFonts = () => {
+    return Font.loadAsync({
+      "roboto-regular": require("./assets/fonts/Roboto-Regular.ttf"),
+      "roboto-bold": require("./assets/fonts/Roboto-Bold.ttf"),
+      "roboto-light": require("./assets/fonts/Roboto-Light.ttf"),
+    });
+  };
 
+  // ensure fonts load before content
+  if (!fontLoaded) {
+    return (
+      <AppLoading
+        startAsync={loadFonts}
+        onFinish={() => setFontLoaded(true)}
+        onError={(err) => console.error(err)}
+      />
+    );
+  }
+
+  // fonts have loaded; return page content
   return (
-    <Context.Provider value={theme}>
-      <div></div>
-    </Context.Provider>
+    <Provider>
+      <Context.Consumer>
+        {(context) =>
+          context.state.pageStr === "date" ? (
+            <View>
+              <Date />
+            </View>
+          ) : context.state.pageStr === "empty" ? (
+            <View>
+              <Empty />
+            </View>
+          ) : (
+            <View>
+              <Layout content={<View>{context.state.page}</View>} />
+            </View>
+          )
+        }
+      </Context.Consumer>
+    </Provider>
   );
-  <Layout content={content} />;
 }
 
 const styles = StyleSheet.create({
@@ -38,5 +70,3 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-
-export default RecordingPage;
