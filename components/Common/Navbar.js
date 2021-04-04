@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Icon } from "react-native-elements";
 import { Context } from "../Context/PageContext";
+import moment from "moment";
 
 const Navbar = () => {
   //const { state, setState } = useContext(PageContext);
@@ -14,19 +15,22 @@ const Navbar = () => {
             style={styles.navbutton}
             onPress={() => context.setAlarm("test")}
           >
-            <Icon name="alarm" type="material-community" color="#503d74"/>
+            <Icon name="alarm" type="material-community" color="#503d74" />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.navbutton}
             onPress={() => context.setCalendar()}
           >
-            <Icon name="calendar" type="material-community" color="#503d74"/>
+            <Icon name="calendar" type="material-community" color="#503d74" />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.navbutton}
-            onPress={() => context.setRecording()}
+            onPress={() => {
+              context.setDateSelected(moment().format("YYYY-MM-DD"));
+              context.setRecording();
+            }}
           >
-            <Icon name="microphone" type="material-community" color="#503d74"/>
+            <Icon name="microphone" type="material-community" color="#503d74" />
           </TouchableOpacity>
         </View>
       )}

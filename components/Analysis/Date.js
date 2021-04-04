@@ -14,6 +14,8 @@ import {
 } from "react-native";
 import { Icon } from "react-native-elements";
 import { Context } from "../Context/PageContext";
+import moment from "moment";
+import { Audio } from "expo-av";
 
 const Date = () => {
   const [text, onChangeText] = React.useState(null);
@@ -46,7 +48,9 @@ const Date = () => {
                   <View>
                     <TouchableOpacity
                       style={styles.back}
-                      onPress={() => context.setCalendar()}
+                      onPress={() => {
+                        context.setCalendar();
+                      }}
                     >
                       <Icon
                         color="white"
@@ -57,10 +61,31 @@ const Date = () => {
                     </TouchableOpacity>
                   </View>
                   <View>
-                    <Text style={styles.date}>Thursday, March 4</Text>
+                    <Text style={styles.date}>
+                      {moment(context.state.dateSelected, "YYYY-MM-DD").format(
+                        "dddd, MMMM Do"
+                      )}
+                    </Text>
                   </View>
                   <View>
-                    <TouchableOpacity style={styles.recording}>
+                    <TouchableOpacity
+                      style={styles.recording}
+                      onPress={async () => {
+                        let uri;
+                        for (let date in context.state.uris) {
+                          if (date === context.state.dateSelected) {
+                            uri = context.state.uris[date];
+                          }
+                        }
+                        const { sound } = await Audio.Sound.createAsync(
+                          { uri: uri },
+                          { shouldPlay: true }
+                        );
+                        console.log("Playing Sound");
+                        sound.setVolumeAsync(1);
+                        await sound.playAsync();
+                      }}
+                    >
                       <Icon
                         color="#FEE375"
                         name="play-circle"

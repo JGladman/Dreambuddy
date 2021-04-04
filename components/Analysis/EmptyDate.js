@@ -1,6 +1,7 @@
 /** JavaScript file for empty date page */
 
 import React from "react";
+import moment from "moment";
 import {
   StyleSheet,
   Text,
@@ -34,11 +35,22 @@ const EmptyDate = () => {
             </TouchableOpacity>
           </View>
           <View>
-            <Text style={styles.date}>Friday, March 5</Text>
+            <Text style={styles.date}>
+              {moment(context.state.dateSelected, "YYYY-MM-DD").format(
+                "dddd, MMMM Do"
+              )}
+            </Text>
           </View>
 
-          <View>
+          <View style={styles.new}>
             <Text style={styles.text}>No dream recorded. Add one now!</Text>
+            <TouchableOpacity onPress={() => context.setRecording()}>
+              <Icon
+                color="#503D74"
+                name="chevron-left"
+                type="material-community"
+              />
+            </TouchableOpacity>
           </View>
 
           <View
@@ -71,6 +83,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: "10%",
     fontFamily: "roboto-regular",
+  },
+  new: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   date: {
     fontSize: 25,
