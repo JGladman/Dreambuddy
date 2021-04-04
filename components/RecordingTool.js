@@ -43,22 +43,7 @@
         console.log('Recording stopped and stored at', uri);
         //return uri;
         }
-    /*
-        async function playSound() {
-            console.log('Loading Sound');
-            const {sound} = await Audio.Sound.createAsync(
-                { uri: stopRecording()},
-                { shouldPlay: true }
-            );
-            setSound(sound);
-        
-            console.log('Playing Sound');
-            await sound.playAsync(); 
-        
-        }
-    */
-    
-    
+
         return (
             <View>
                 <View style={styles.container}>

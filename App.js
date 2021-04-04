@@ -13,7 +13,7 @@ export function App() {
   );
 
   return (
-    <Context.Provider value = {theme}>
+    <Context.Provider value = {uri}>
       <div>
       </div>
     </Context.Provider>);
