@@ -105,11 +105,11 @@ export default function RecordingTool() {
                   context.setContextRecording(false);
                 }}
               >
-                {/* <Icon name="microphone" size={130} type="material-community" /> */}
-                <Image
+                <Icon name="microphone" size={130} type="material-community" />
+                {/* <Image
               style={styles.image}
               source={require("../../assets/moon-only.jpg")}
-            />
+            /> */}
               </TouchableOpacity>
             ) : (
               <TouchableOpacity
