@@ -107,13 +107,8 @@ const SetAlarm = () => {
       fontFamily: "roboto-bold",
     },
     timePicker: {
-<<<<<<< HEAD
       width: 90,
       transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }],
-=======
-      //flex: 1,
-      width: "100%",
->>>>>>> ae193b118b8f7fca759d6f455e953fd2f3b93410
     },
     toggleContainer: {
       justifyContent: "center",
