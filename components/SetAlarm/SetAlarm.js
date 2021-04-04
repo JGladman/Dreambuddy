@@ -15,7 +15,6 @@ import Navbar from "../Common/Navbar";
 import * as Notifications from "expo-notifications";
 import Constants from "expo-constants";
 
-
 const SetAlarm = () => {
   const [expoPushToken, setExpoPushToken] = useState("");
   const [notification, setNotification] = useState(false);
@@ -108,8 +107,13 @@ const SetAlarm = () => {
       fontFamily: "roboto-bold",
     },
     timePicker: {
+<<<<<<< HEAD
       width: 90,
       transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }],
+=======
+      //flex: 1,
+      width: "100%",
+>>>>>>> ae193b118b8f7fca759d6f455e953fd2f3b93410
     },
     toggleContainer: {
       justifyContent: "center",
@@ -130,7 +134,7 @@ const SetAlarm = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-        <View style={styles.roundedBox}>
+      <View style={styles.roundedBox}>
         <Text style={styles.h1}>Set Alarm</Text>
         <View style={styles.timePicker}>
           <DateTimePicker
