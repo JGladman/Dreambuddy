@@ -95,13 +95,13 @@ export default function RecordingTool() {
                 onPress={async () => {
                   const uri = await stopRecording();
                   context.addURI(uri, context.state.dateSelected);
-                  const { sound } = await Audio.Sound.createAsync(
-                    { uri: uri },
-                    { shouldPlay: true }
-                  );
-                  console.log("Playing Sound");
-                  sound.setVolumeAsync(1);
-                  await sound.playAsync();
+                  // const { sound } = await Audio.Sound.createAsync(
+                  //   { uri: uri },
+                  //   { shouldPlay: true }
+                  // );
+                  // // console.log("Playing Sound");
+                  // // sound.setVolumeAsync(1);
+                  // // await sound.playAsync();
                   context.setContextRecording(false);
                 }}
               >

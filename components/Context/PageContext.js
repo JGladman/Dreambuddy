@@ -18,6 +18,7 @@ export class Provider extends Component {
     uris: {},
     markedDates: {},
     recording: false,
+    playback: false,
   };
 
   render() {
@@ -106,6 +107,11 @@ export class Provider extends Component {
           setContextRecording: (recording) => {
             this.setState({
               recording: recording,
+            });
+          },
+          setPlayback: (playback) => {
+            this.setState({
+              playback: playback,
             });
           },
         }}
